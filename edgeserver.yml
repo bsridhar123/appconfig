@@ -1,0 +1,34 @@
+info:
+  component: Zuul Server
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  ignoredServices: "*"
+  routes:
+    quote:
+        path: /apiquote/**
+        serviceId: quote
+    ACL:
+        path: /apiauthorization/**
+        serviceId: ACL
+    auth:
+        path: /apiauth/**
+        serviceId: auth
+eureka:
+   client:
+    eureka-server-port: 8761
+
+server:
+  port: 8765
+
+logging:
+  level:
+    ROOT: debug
+    org.springframework.web: DEBUG
