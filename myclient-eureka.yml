@@ -2,7 +2,7 @@ spring:
   application:
     name: myclient
 
-welcome: Hello from molai    
+welcome: Hello from sridhar    
 
 server:
   port: 0
