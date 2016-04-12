@@ -1,0 +1,207 @@
+Windows PowerShell
+Copyright (C) 2013 Microsoft Corporation. All rights reserved.
+
+PS C:\WINDOWS\system32> cd F:\SriProjects\bACKUP\lattice-bundle-v0.7.0\vagrant
+PS F:\SriProjects\bACKUP\lattice-bundle-v0.7.0\vagrant> vagrant up --provider virtualbox
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'lattice/colocated' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: 0.6.0
+==> default: Loading metadata for box 'lattice/colocated'
+    default: URL: https://atlas.hashicorp.com/lattice/colocated
+==> default: Adding box 'lattice/colocated' (v0.6.0) for provider: virtualbox
+    default: Downloading: https://atlas.hashicorp.com/lattice/boxes/colocated/versions/0.6.0/providers/virtualbox.box
+    default: Progress: 100% (Rate: 1062k/s, Estimated time remaining: --:--:--)
+==> default: Successfully added box 'lattice/colocated' (v0.6.0) for 'virtualbox'!
+==> default: Importing base box 'lattice/colocated'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'lattice/colocated' is up to date...
+==> default: Setting the name of the VM: vagrant_default_1460442796363_12908
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+    default: Adapter 2: hostonly
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default:
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default:
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+==> default: Configuring and enabling network interfaces...
+==> default: Running provisioner: file...
+==> default: Running provisioner: shell...
+    default: Running: inline script
+==> default: stdin: is not a tty
+==> default: Waiting for services to start...
+==> default: Lattice is now installed and running.
+==> default: ----------------------------------------------------------------
+==> default: To obtain a version of ltc that is compatible with your cluster:
+==> default: Download http://receptor.local.lattice.cf/v1/sync/windows/ltc.exe
+==> default: Optionally, move ltc to a directory in your PATH.
+==> default: You may then target your cluster using: ltc target local.lattice.cf
+==> default: ----------------------------------------------------------------
+PS F:\SriProjects\bACKUP\lattice-bundle-v0.7.0\vagrant> dir
+
+
+    Directory: F:\SriProjects\bACKUP\lattice-bundle-v0.7.0\vagrant
+
+
+Mode                LastWriteTime     Length Name
+----                -------------     ------ ----
+d----        19-03-2016     03:12            .vagrant
+-a---        19-03-2016     03:12   25642445 lattice.tgz
+-----        02-12-2015     23:58       8096 Vagrantfile
+
+
+PS F:\SriProjects\bACKUP\lattice-bundle-v0.7.0\vagrant> cd F:\SriProjects
+PS F:\SriProjects> dir
+
+
+    Directory: F:\SriProjects
+
+
+Mode                LastWriteTime     Length Name
+----                -------------     ------ ----
+d----        07-04-2016     09:13            07-04-2016
+d----        04-04-2016     20:57            AUTH-Integration
+d----        05-04-2016     00:38            bACKUP
+d----        07-04-2016     09:16            BrokerPOS-QuoteOrchestrator
+d----        11-04-2016     22:59            cf-cli-installer_6.15.0_winx64
+d----        12-04-2016     02:11            cf-mongodb-example-app-master
+d----        05-04-2016     23:03            code
+d----        04-04-2016     23:05            curl_7_48_0_openssl_nghttp2_x64
+d----        11-04-2016     23:48            pcfdev-v0.13.0
+d----        05-04-2016     23:03            without_zuul
+d----        04-04-2016     20:56            working
+d----        04-04-2016     22:02            working_2
+-a---        10-04-2016     19:21      74916 Capture.PNG
+-a---        11-04-2016     22:59    4485559 cf-cli-installer_6.15.0_winx64.zip
+-a---        12-04-2016     02:10       8754 cf-mongodb-example-app-master.zip
+-a---        05-04-2016     23:02      18266 code.zip
+-a---        04-04-2016     23:04     872212 curl_7_48_0_openssl_nghttp2_x64.7z
+-a---        05-04-2016     23:11     842315 Deployment of EUREKA and ZUUL to WAS Liberty Profile.docx
+-a---        12-04-2016     12:09   18293760 ltc.exe
+-a---        11-04-2016     22:55       5558 pcfdev-v0.13.0.zip
+-a---        05-04-2016     23:02      32730 without_zuul.zip
+
+
+PS F:\SriProjects> ltc target local.lattice.cf
+API location set.
+PS F:\SriProjects> ltc create lattice-app
+Incorrect Usage: <app-name> and <docker-image> are required
+PS F:\SriProjects> ltc
+NAME:
+   ltc - Command line interface for Lattice.
+
+USAGE:
+   ltc [global options] command [command options] [arguments...]
+
+VERSION:
+   7163fd20a6520d4952bce8cd985ab5cd62b3c183 (diego v0.1440.0)
+
+AUTHOR(S):
+   Pivotal <cf-lattice@lists.cloudfoundry.org>
+
+
+COMMANDS:
+
+  TARGET LATTICE:
+    target, ta           Targets a lattice cluster
+
+  LTC VERSION:
+    version, vr          Returns CLI and server versions
+    sync                 Updates ltc to the latest version available in the targeted Lattice cluster
+
+  MANAGE DOCKER APPS:
+    create, cr           Creates a docker app on lattice
+
+  MANAGE DROPLETS:
+    build-droplet, bd    Builds app bits into a droplet using a CF buildpack
+    export-droplet, ed   Exports a droplet from the droplet store to disk
+    import-droplet, id   Imports a droplet from disk to the droplet store
+    launch-droplet, ld   Launches a droplet as an app running on lattice
+    list-droplets, lsd   Lists the droplets in the droplet store
+    remove-droplet, rd   Removes a droplet from the droplet store
+
+  MANAGE ALL APPS:
+    remove, rm           Stops and removes app(s) from lattice
+    scale, sc            Scales an app on lattice
+    update, up           Updates attributes of an existing application
+
+  TASKS:
+    cancel-task, ct      Cancels the given task
+    delete-task, dt      Deletes the given task
+    task, tk             Displays the status of a given task
+
+  STREAM LOGS:
+    logs, lg             Streams logs from the specified application or task
+
+  SEE WHATS RUNNING:
+    cells, ce            Shows details about lattice cells
+    list, ls             Lists applications & tasks running on lattice
+    status, st           Shows details about a running app on lattice
+    visualize, vz        Visualizes the workload distribution across the lattice cells
+
+  SSH INTO AN APP CONTAINER:
+    ssh                  Connects to a running app
+
+  ADVANCED:
+    submit-lrp, sl       Creates an app from JSON on lattice
+    submit-task, su      Submits a task from JSON on lattice
+
+  HELP AND DEBUG:
+    debug-logs, dl       Streams logs from the lattice cluster components
+    help, h              Shows a list of commands or help for one command
+    test, te             Runs test suite against targeted lattice cluster
+
+GLOBAL OPTIONS:
+   --version, -v        Print the version
+   --help, -h           Show help
+PS F:\SriProjects> ltc create lattice-app cloudfoundry/lattice-app
+Warning: No container user specified to run your app, your app will be run as root!
+No port specified, image metadata did not contain exposed ports. Defaulting to 8080.
+No working directory specified, using working directory from the image metadata...
+Monitoring the app on port 8080...
+No start command specified, using start command from the image metadata...
+Start command is:
+/lattice-app
+Creating App: lattice-app
+.......................................04/12 12:26:44.78 [APP|0] Successfully created container
+...04/12 12:26:53.10 [APP|0] {"timestamp":"1460444213.103004456","source":"lattice-app","message":"lattice-app.lattice-a
+pp.starting","log_level":1,"data":{"ports":["8080"]}}
+04/12 12:26:53.10 [APP|0] {"timestamp":"1460444213.104270220","source":"lattice-app","message":"lattice-app.lattice-app.
+up","log_level":1,"data":{"port":"8080"}}
+04/12 12:26:53.10 [HEALTH|0] healthcheck failed
+04/12 12:26:53.12 [HEALTH|0] Exit status 1
+04/12 12:26:53.35 [SSH|0] {"timestamp":"1460444213.357213974","source":"sshd","message":"sshd.started","log_level":1,"da
+ta":{}}
+.04/12 12:26:53.71 [HEALTH|0] healthcheck passed
+04/12 12:26:53.74 [HEALTH|0] Exit status 0
+04/12 12:26:54.10 [APP|0] Lattice-app. Says Hello. on index: 0
+
+lattice-app is now running.
+04/12 12:26:55.10 [APP|0] Lattice-app. Says Hello. on index: 0
+04/12 12:26:56.10 [APP|0] Lattice-app. Says Hello. on index: 0
+04/12 12:26:57.10 [APP|0] Lattice-app. Says Hello. on index: 0
+04/12 12:26:58.10 [APP|0] Lattice-app. Says Hello. on index: 0
+04/12 12:26:59.10 [APP|0] Lattice-app. Says Hello. on index: 0
+04/12 12:27:00.10 [APP|0] Lattice-app. Says Hello. on index: 0
+04/12 12:27:01.10 [APP|0] Lattice-app. Says Hello. on index: 0
+04/12 12:27:02.10 [APP|0] Lattice-app. Says Hello. on index: 0
+04/12 12:27:03.10 [APP|0] Lattice-app. Says Hello. on index: 0
+04/12 12:27:04.12 [APP|0] Lattice-app. Says Hello. on index: 0
+App is reachable at:
+http://lattice-app.local.lattice.cf
+http://lattice-app-8080.local.lattice.cf
+PS F:\SriProjects>
