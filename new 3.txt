@@ -1,0 +1,789 @@
+PS F:\SriProjects\pcfdev-v0.13.0> .\start-windows.ps1
+WARNING: PCF Dev has reserved 2 GBs out of 3 GBs total system memory.
+Performance may be impacted.
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'pcfdev/pcfdev' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: 0.41.0
+==> default: Loading metadata for box 'pcfdev/pcfdev'
+    default: URL: https://atlas.hashicorp.com/pcfdev/pcfdev
+==> default: Adding box 'pcfdev/pcfdev' (v0.41.0) for provider: virtualbox
+    default: Downloading: https://atlas.hashicorp.com/pcfdev/boxes/pcfdev/versions/0.41.0/providers/virtualbox.box
+==> default: Box download is resuming from prior download progress
+    default: Progress: 100% (Rate: 1008k/s, Estimated time remaining: --:--:--)
+==> default: Successfully added box 'pcfdev/pcfdev' (v0.41.0) for 'virtualbox'!
+==> default: Importing base box 'pcfdev/pcfdev'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'pcfdev/pcfdev' is up to date...
+==> default: Setting the name of the VM: pcfdev-v0130_default_1460402265259_20079
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+    default: Adapter 2: hostonly
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default:
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default:
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+==> default: Configuring and enabling network interfaces...
+==> default: Running provisioner: shell...
+    default: Running: inline script
+==> default: stdin: is not a tty
+==> default: Waiting for services to start...
+==> default: 0 out of 48 running
+==> default: 0 out of 48 running
+==> default: 0 out of 48 running
+==> default: 0 out of 48 running
+==> default: 0 out of 48 running
+==> default: 0 out of 48 running
+==> default: 0 out of 48 running
+==> default: 4 out of 48 running
+==> default: 14 out of 48 running
+==> default: 24 out of 48 running
+==> default: 45 out of 48 running
+==> default: 46 out of 48 running
+==> default: 46 out of 48 running
+==> default: 44 out of 48 running
+==> default: 42 out of 48 running
+==> default: 48 out of 48 running
+==> default: PCF Dev is now running.
+==> default: To begin using PCF Dev, please run:
+==> default:    cf login -a api.local1.pcfdev.io --skip-ssl-validation
+==> default: Email: admin
+==> default: Password: admin
+PS F:\SriProjects\pcfdev-v0.13.0> cf login -a api.local1.pcfdev.io --skip-ssl-validation
+API endpoint: api.local1.pcfdev.io
+
+Email> admin
+
+Password>
+Authenticating...
+OK
+
+Targeted org pcfdev-org
+
+Targeted space pcfdev-space
+
+
+
+API endpoint:   https://api.local1.pcfdev.io (API version: 2.51.0)
+User:           admin
+Org:            pcfdev-org
+Space:          pcfdev-space
+PS F:\SriProjects\pcfdev-v0.13.0> dir
+
+
+    Directory: F:\SriProjects\pcfdev-v0.13.0
+
+
+Mode                LastWriteTime     Length Name
+----                -------------     ------ ----
+d----        11-04-2016     23:48            .vagrant
+-a---        01-04-2016     20:04        129 destroy-osx
+-a---        01-04-2016     20:04        122 destroy-windows.ps1
+-a---        04-04-2016     20:06       2218 start-osx
+-a---        04-04-2016     20:06       2651 start-windows.ps1
+-a---        01-04-2016     20:04        123 stop-osx
+-a---        01-04-2016     20:04        116 stop-windows.ps1
+-a---        30-03-2016     08:56       4466 Vagrantfile
+
+
+PS F:\SriProjects\pcfdev-v0.13.0> cd F:\SriProjects\without_zuul\Atomic
+PS F:\SriProjects\without_zuul\Atomic> cf push Atomic
+Creating app Atomic in org pcfdev-org / space pcfdev-space as admin...
+OK
+
+Creating route atomic.local1.pcfdev.io...
+OK
+
+Binding atomic.local1.pcfdev.io to Atomic...
+OK
+
+Uploading Atomic...
+Uploading app files from: F:\SriProjects\without_zuul\Atomic
+Uploading 31M, 103 files
+Done uploading
+OK
+
+Starting app Atomic in org pcfdev-org / space pcfdev-space as admin...
+Downloading java_buildpack...
+Downloading ruby_buildpack...
+Downloading nodejs_buildpack...
+Downloading go_buildpack...
+Downloading python_buildpack...
+Downloading php_buildpack...
+Downloading staticfile_buildpack...
+Downloading binary_buildpack...
+Downloaded binary_buildpack (8.3K)
+Downloaded staticfile_buildpack (2.4M)
+Downloaded java_buildpack (241.6M)
+Downloaded nodejs_buildpack (44.3M)
+Downloaded python_buildpack (254M)
+Downloaded php_buildpack (217.1M)
+Downloaded go_buildpack (344.8M)
+Downloaded ruby_buildpack (258.6M)
+Creating container
+Successfully created container
+Downloading app package...
+Downloaded app package (28.5M)
+Staging...
+None of the buildpacks detected a compatible application
+Exit status 222
+Staging failed: Exited with status 222
+
+FAILED
+NoAppDetectedError
+
+TIP: Buildpacks are detected when the "cf.exe push" is executed from within the directory that contains the app source c
+ode.
+
+Use 'cf.exe buildpacks' to see a list of supported buildpacks.
+
+Use 'cf.exe logs Atomic --recent' for more in depth log information.
+PS F:\SriProjects\without_zuul\Atomic> cf logs Atomic --recent
+Connected, dumping recent logs for app Atomic in org pcfdev-org / space pcfdev-space as admin...
+
+2016-04-12T01:26:20.69+0530 [API/0]      OUT Created app with guid 3d93fee1-439d-4cf7-9c39-10306bddfb5d
+2016-04-12T01:26:22.05+0530 [API/0]      OUT Updated app with guid 3d93fee1-439d-4cf7-9c39-10306bddfb5d ({"route"=>"750c
+fbe2-e571-444e-aec3-fd5dc04ccb97"})
+2016-04-12T01:27:10.41+0530 [API/0]      OUT Updated app with guid 3d93fee1-439d-4cf7-9c39-10306bddfb5d ({"state"=>"STAR
+TED"})
+2016-04-12T01:27:11.59+0530 [STG/0]      OUT Downloading java_buildpack...
+2016-04-12T01:27:11.62+0530 [STG/0]      OUT Downloading ruby_buildpack...
+2016-04-12T01:27:11.62+0530 [STG/0]      OUT Downloading nodejs_buildpack...
+2016-04-12T01:27:11.62+0530 [STG/0]      OUT Downloading go_buildpack...
+2016-04-12T01:27:11.63+0530 [STG/0]      OUT Downloading python_buildpack...
+2016-04-12T01:27:11.63+0530 [STG/0]      OUT Downloading php_buildpack...
+2016-04-12T01:27:11.63+0530 [STG/0]      OUT Downloading staticfile_buildpack...
+2016-04-12T01:27:11.63+0530 [STG/0]      OUT Downloading binary_buildpack...
+2016-04-12T01:27:53.58+0530 [STG/0]      OUT Downloaded binary_buildpack (8.3K)
+2016-04-12T01:28:29.02+0530 [STG/0]      OUT Downloaded staticfile_buildpack (2.4M)
+2016-04-12T01:30:49.92+0530 [STG/0]      OUT Downloaded java_buildpack (241.6M)
+2016-04-12T01:31:11.51+0530 [STG/0]      OUT Downloaded nodejs_buildpack (44.3M)
+2016-04-12T01:32:41.97+0530 [STG/0]      OUT Downloaded python_buildpack (254M)
+2016-04-12T01:32:57.37+0530 [STG/0]      OUT Downloaded php_buildpack (217.1M)
+2016-04-12T01:33:14.56+0530 [STG/0]      OUT Downloaded go_buildpack (344.8M)
+2016-04-12T01:33:26.84+0530 [STG/0]      OUT Downloaded ruby_buildpack (258.6M)
+2016-04-12T01:33:26.86+0530 [STG/0]      OUT Creating container
+2016-04-12T01:33:33.06+0530 [STG/0]      OUT Successfully created container
+2016-04-12T01:33:33.13+0530 [STG/0]      OUT Downloading app package...
+2016-04-12T01:33:36.25+0530 [STG/0]      OUT Downloaded app package (28.5M)
+2016-04-12T01:33:36.25+0530 [STG/0]      OUT Staging...
+2016-04-12T01:33:45.36+0530 [STG/0]      ERR None of the buildpacks detected a compatible application
+2016-04-12T01:33:45.37+0530 [STG/0]      OUT Exit status 222
+2016-04-12T01:33:45.44+0530 [STG/0]      ERR Staging failed: Exited with status 222
+2016-04-12T01:33:51.21+0530 [API/0]      ERR Failed to stage application: staging failed
+PS F:\SriProjects\without_zuul\Atomic> cd .\target
+PS F:\SriProjects\without_zuul\Atomic\target> dir
+
+
+    Directory: F:\SriProjects\without_zuul\Atomic\target
+
+
+Mode                LastWriteTime     Length Name
+----                -------------     ------ ----
+d----        12-04-2016     01:22            Atomic-1.0-SNAPSHOT
+d----        12-04-2016     01:22            classes
+d----        12-04-2016     01:22            generated-sources
+d----        12-04-2016     01:22            maven-archiver
+d----        12-04-2016     01:22            maven-status
+-a---        12-04-2016     01:22   13351554 Atomic-1.0-SNAPSHOT.war
+-a---        12-04-2016     01:22    8967796 Atomic-1.0-SNAPSHOT.war.original
+
+
+PS F:\SriProjects\without_zuul\Atomic\target> cf push Atomic -p .\Atomic-1.0-SNAPSHOT.war
+Updating app Atomic in org pcfdev-org / space pcfdev-space as admin...
+OK
+
+Uploading Atomic...
+Uploading app files from: .\Atomic-1.0-SNAPSHOT.war
+Uploading 3.4M, 104 files
+Done uploading
+OK
+
+Starting app Atomic in org pcfdev-org / space pcfdev-space as admin...
+Downloading binary_buildpack...
+Downloading java_buildpack...
+Downloading ruby_buildpack...
+Downloading nodejs_buildpack...
+Downloading go_buildpack...
+Downloading python_buildpack...
+Downloading php_buildpack...
+Downloading staticfile_buildpack...
+Downloaded ruby_buildpack
+Downloaded nodejs_buildpack
+Downloaded staticfile_buildpack
+Downloaded java_buildpack
+Downloaded go_buildpack
+Downloaded python_buildpack
+Downloaded php_buildpack
+Downloaded binary_buildpack
+Creating container
+Successfully created container
+Downloading app package...
+Downloaded app package (11.4M)
+Staging...
+-----> Java Buildpack Version: v3.6 (offline) | https://github.com/cloudfoundry/java-buildpack.git#5194155
+-----> Downloading Open Jdk JRE 1.8.0_71 from https://download.run.pivotal.io/openjdk/trusty/x86_64/openjdk-1.8.0_71.tar
+.gz (found in cache)
+       Expanding Open Jdk JRE to .java-buildpack/open_jdk_jre (3.9s)
+-----> Downloading Open JDK Like Memory Calculator 2.0.1_RELEASE from https://download.run.pivotal.io/memory-calculator/
+trusty/x86_64/memory-calculator-2.0.1_RELEASE.tar.gz (found in cache)
+       Memory Settings: -XX:MaxMetaspaceSize=104857K -Xss1M -Xms768M -XX:MetaspaceSize=104857K -Xmx768M
+-----> Downloading Spring Auto Reconfiguration 1.10.0_RELEASE from https://download.run.pivotal.io/auto-reconfiguration/
+auto-reconfiguration-1.10.0_RELEASE.jar (found in cache)
+Exit status 0
+Staging complete
+Uploading droplet, build artifacts cache...
+Uploading droplet...
+Uploading build artifacts cache...
+Uploaded build artifacts cache (108B)
+Uploaded droplet (56.3M)
+Uploading complete
+
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+
+OK
+
+App Atomic was started using this command `CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memo
+ry-calculator-2.0.1_RELEASE -memorySizes=metaspace:64m.. -memoryWeights=heap:75,metaspace:10,native:10,stack:5 -memoryIn
+itials=heap:100%,metaspace:100% -totMemory=$MEMORY_LIMIT) && JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=
+$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh $CALCULATED_MEMORY" && SERVER_PORT=$PORT eval exec $PWD/.java-buildpac
+k/open_jdk_jre/bin/java $JAVA_OPTS -cp $PWD/.:$PWD/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfigurati
+on-1.10.0_RELEASE.jar org.springframework.boot.loader.WarLauncher`
+
+Showing health and status for app Atomic in org pcfdev-org / space pcfdev-space as admin...
+OK
+
+requested state: started
+instances: 1/1
+usage: 1G x 1 instances
+urls: atomic.local1.pcfdev.io
+last uploaded: Mon Apr 11 20:10:38 UTC 2016
+stack: cflinuxfs2
+buildpack: java-buildpack=v3.6-offline-https://github.com/cloudfoundry/java-buildpack.git#5194155 java-main open-jdk-lik
+e-jre=1.8.0_71 open-jdk-like-memory-calculator=2.0.1_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
+
+     state     since                    cpu    memory         disk           details
+#0   running   2016-04-12 01:42:48 AM   0.0%   284.3M of 1G   135.8M of 1G
+PS F:\SriProjects\without_zuul\Atomic\target> cf logs Atomic --recent
+Connected, dumping recent logs for app Atomic in org pcfdev-org / space pcfdev-space as admin...
+
+2016-04-12T01:32:41.97+0530 [STG/0]      OUT Downloaded python_buildpack (254M)
+2016-04-12T01:32:57.37+0530 [STG/0]      OUT Downloaded php_buildpack (217.1M)
+2016-04-12T01:33:14.56+0530 [STG/0]      OUT Downloaded go_buildpack (344.8M)
+2016-04-12T01:33:26.84+0530 [STG/0]      OUT Downloaded ruby_buildpack (258.6M)
+2016-04-12T01:33:26.86+0530 [STG/0]      OUT Creating container
+2016-04-12T01:33:33.06+0530 [STG/0]      OUT Successfully created container
+2016-04-12T01:33:33.13+0530 [STG/0]      OUT Downloading app package...
+2016-04-12T01:33:36.25+0530 [STG/0]      OUT Downloaded app package (28.5M)
+2016-04-12T01:33:36.25+0530 [STG/0]      OUT Staging...
+2016-04-12T01:33:45.36+0530 [STG/0]      ERR None of the buildpacks detected a compatible application
+2016-04-12T01:33:45.37+0530 [STG/0]      OUT Exit status 222
+2016-04-12T01:33:45.44+0530 [STG/0]      ERR Staging failed: Exited with status 222
+2016-04-12T01:33:51.21+0530 [API/0]      ERR Failed to stage application: staging failed
+2016-04-12T01:40:18.85+0530 [API/0]      OUT Updated app with guid 3d93fee1-439d-4cf7-9c39-10306bddfb5d ({"name"=>"Atomi
+c"})
+2016-04-12T01:40:44.09+0530 [API/0]      OUT Updated app with guid 3d93fee1-439d-4cf7-9c39-10306bddfb5d ({"state"=>"STAR
+TED"})
+2016-04-12T01:40:44.77+0530 [STG/0]      OUT Downloading binary_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading java_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading ruby_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading nodejs_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading go_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading python_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading php_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading staticfile_buildpack...
+2016-04-12T01:40:44.89+0530 [STG/0]      OUT Downloaded ruby_buildpack
+2016-04-12T01:40:44.90+0530 [STG/0]      OUT Downloaded nodejs_buildpack
+2016-04-12T01:40:44.90+0530 [STG/0]      OUT Downloaded staticfile_buildpack
+2016-04-12T01:40:44.91+0530 [STG/0]      OUT Downloaded java_buildpack
+2016-04-12T01:40:44.91+0530 [STG/0]      OUT Downloaded go_buildpack
+2016-04-12T01:40:44.92+0530 [STG/0]      OUT Downloaded python_buildpack
+2016-04-12T01:40:44.92+0530 [STG/0]      OUT Downloaded php_buildpack
+2016-04-12T01:40:44.93+0530 [STG/0]      OUT Downloaded binary_buildpack
+2016-04-12T01:40:45.25+0530 [STG/0]      OUT Creating container
+2016-04-12T01:40:46.77+0530 [STG/0]      OUT Successfully created container
+2016-04-12T01:40:46.79+0530 [STG/0]      OUT Downloading app package...
+2016-04-12T01:40:47.81+0530 [STG/0]      OUT Downloaded app package (11.4M)
+2016-04-12T01:40:47.81+0530 [STG/0]      OUT Staging...
+2016-04-12T01:40:52.37+0530 [STG/0]      OUT -----> Java Buildpack Version: v3.6 (offline) | https://github.com/cloudfou
+ndry/java-buildpack.git#5194155
+2016-04-12T01:40:52.62+0530 [STG/0]      OUT -----> Downloading Open Jdk JRE 1.8.0_71 from https://download.run.pivotal.
+io/openjdk/trusty/x86_64/openjdk-1.8.0_71.tar.gz (found in cache)
+2016-04-12T01:40:56.56+0530 [STG/0]      OUT        Expanding Open Jdk JRE to .java-buildpack/open_jdk_jre (3.9s)
+2016-04-12T01:40:56.69+0530 [STG/0]      OUT -----> Downloading Open JDK Like Memory Calculator 2.0.1_RELEASE from https
+://download.run.pivotal.io/memory-calculator/trusty/x86_64/memory-calculator-2.0.1_RELEASE.tar.gz (found in cache)
+2016-04-12T01:40:56.82+0530 [STG/0]      OUT        Memory Settings: -XX:MaxMetaspaceSize=104857K -Xss1M -Xms768M -XX:Me
+taspaceSize=104857K -Xmx768M
+2016-04-12T01:40:56.84+0530 [STG/0]      OUT -----> Downloading Spring Auto Reconfiguration 1.10.0_RELEASE from https://
+download.run.pivotal.io/auto-reconfiguration/auto-reconfiguration-1.10.0_RELEASE.jar (found in cache)
+2016-04-12T01:41:29.74+0530 [STG/0]      OUT Exit status 0
+2016-04-12T01:41:29.78+0530 [STG/0]      OUT Staging complete
+2016-04-12T01:41:29.78+0530 [STG/0]      OUT Uploading droplet, build artifacts cache...
+2016-04-12T01:41:29.84+0530 [STG/0]      OUT Uploading droplet...
+2016-04-12T01:41:29.87+0530 [STG/0]      OUT Uploading build artifacts cache...
+2016-04-12T01:41:34.15+0530 [STG/0]      OUT Uploaded build artifacts cache (108B)
+2016-04-12T01:41:55.28+0530 [STG/0]      OUT Uploaded droplet (56.3M)
+2016-04-12T01:41:55.29+0530 [STG/0]      OUT Uploading complete
+2016-04-12T01:42:03.63+0530 [CELL/0]     OUT Creating container
+2016-04-12T01:42:05.08+0530 [CELL/0]     OUT Successfully created container
+2016-04-12T01:42:15.59+0530 [CELL/0]     OUT Starting health monitoring of container
+2016-04-12T01:42:28.35+0530 [APP/0]      OUT   .   ____          _            __ _ _
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT   '  |____| .__|_| |_|_| |_\__, | / / / /
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT  =========|_|==============|___/=/_/_/_/
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT  :: Spring Boot ::        (v1.3.0.RELEASE)
+2016-04-12T01:42:28.94+0530 [APP/0]      OUT 2016-04-11 20:12:28.927  INFO 12 --- [           main] pertySourceApplicati
+onContextInitializer : Adding 'cloud' PropertySource to ApplicationContext
+2016-04-12T01:42:29.26+0530 [APP/0]      OUT 2016-04-11 20:12:29.252  INFO 12 --- [           main] nfigurationApplicati
+onContextInitializer : Adding cloud service auto-reconfiguration to ApplicationContext
+2016-04-12T01:42:29.38+0530 [APP/0]      OUT 2016-04-11 20:12:29.361  INFO 12 --- [           main] c.company.auth.clien
+t.AtomicApplication  : Starting AtomicApplication on h34ck58s57i with PID 12 (/home/vcap/app/WEB-INF/classes started by
+vcap in /home/vcap/app)
+2016-04-12T01:42:29.38+0530 [APP/0]      OUT 2016-04-11 20:12:29.361  INFO 12 --- [           main] c.company.auth.clien
+t.AtomicApplication  : The following profiles are active: cloud
+2016-04-12T01:42:30.33+0530 [APP/0]      OUT 2016-04-11 20:12:30.251  INFO 12 --- [           main] ationConfigEmbeddedW
+ebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContex
+t@55ed26e: startup date [Mon Apr 11 20:12:30 UTC 2016]; root of context hierarchy
+2016-04-12T01:42:37.90+0530 [APP/0]      OUT 2016-04-11 20:12:37.901  WARN 12 --- [           main] .i.s.PathMatchingRes
+ourcePatternResolver : Skipping [/home/vcap/app/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfiguration-
+1.10.0_RELEASE.jar] because it does not denote a directory
+2016-04-12T01:42:40.02+0530 [APP/0]      OUT 2016-04-11 20:12:40.025  INFO 12 --- [           main] o.s.b.f.s.DefaultLis
+tableBeanFactory     : Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing
+ [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=
+true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErro
+rViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined i
+n class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfigura
+tion.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; a
+utowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration
+$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferre
+d); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigu
+rationAdapter.class]]
+2016-04-12T01:42:41.05+0530 [APP/0]      OUT 2016-04-11 20:12:41.058  INFO 12 --- [           main] urceCloudServiceBean
+FactoryPostProcessor : Auto-reconfiguring beans of type javax.sql.DataSource
+2016-04-12T01:42:41.06+0530 [APP/0]      OUT 2016-04-11 20:12:41.062  INFO 12 --- [           main] urceCloudServiceBean
+FactoryPostProcessor : No beans of type javax.sql.DataSource found. Skipping auto-reconfiguration.
+2016-04-12T01:42:43.40+0530 [APP/0]      OUT 2016-04-11 20:12:43.404  INFO 12 --- [           main] s.b.c.e.t.TomcatEmbe
+ddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2016-04-12T01:42:43.45+0530 [APP/0]      OUT 2016-04-11 20:12:43.455  INFO 12 --- [           main] o.apache.catalina.co
+re.StandardService   : Starting service Tomcat
+2016-04-12T01:42:43.46+0530 [APP/0]      OUT 2016-04-11 20:12:43.460  INFO 12 --- [           main] org.apache.catalina.
+core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2016-04-12T01:42:44.02+0530 [APP/0]      OUT 2016-04-11 20:12:44.022  INFO 12 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[
+localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-04-12T01:42:44.02+0530 [APP/0]      OUT 2016-04-11 20:12:44.025  INFO 12 --- [ost-startStop-1] o.s.web.context.Cont
+extLoader            : Root WebApplicationContext: initialization completed in 13989 ms
+2016-04-12T01:42:45.40+0530 [APP/0]      OUT 2016-04-11 20:12:45.403  INFO 12 --- [ost-startStop-1] o.s.b.c.e.ServletReg
+istrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2016-04-12T01:42:45.42+0530 [APP/0]      OUT 2016-04-11 20:12:45.428  INFO 12 --- [ost-startStop-1] o.s.b.c.embedded.Fil
+terRegistrationBean  : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-04-12T01:42:45.43+0530 [APP/0]      OUT 2016-04-11 20:12:45.431  INFO 12 --- [ost-startStop-1] o.s.b.c.embedded.Fil
+terRegistrationBean  : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-04-12T01:42:45.43+0530 [APP/0]      OUT 2016-04-11 20:12:45.434  INFO 12 --- [ost-startStop-1] o.s.b.c.embedded.Fil
+terRegistrationBean  : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-04-12T01:42:45.43+0530 [APP/0]      OUT 2016-04-11 20:12:45.434  INFO 12 --- [ost-startStop-1] o.s.b.c.embedded.Fil
+terRegistrationBean  : Mapping filter: 'requestContextFilter' to: [/*]
+2016-04-12T01:42:46.66+0530 [APP/0]      OUT 2016-04-11 20:12:46.668  INFO 12 --- [           main] s.w.s.m.m.a.RequestM
+appingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbedded
+WebApplicationContext@55ed26e: startup date [Mon Apr 11 20:12:30 UTC 2016]; root of context hierarchy
+2016-04-12T01:42:47.08+0530 [APP/0]      OUT 2016-04-11 20:12:47.084  INFO 12 --- [           main] s.w.s.m.m.a.RequestM
+appingHandlerMapping : Mapped "{[/employee/{id}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com
+.company.auth.client.model.Employee> com.company.auth.client.controller.EmployeeController.getEmployee(java.lang.String)
+ throws java.lang.Exception
+2016-04-12T01:42:47.09+0530 [APP/0]      OUT 2016-04-11 20:12:47.091  INFO 12 --- [           main] s.w.s.m.m.a.RequestM
+appingHandlerMapping : Mapped "{[/employee],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.la
+ng.String> com.company.auth.client.controller.EmployeeController.createEmployee(com.company.auth.client.model.Employee)
+throws java.lang.Exception
+2016-04-12T01:42:47.09+0530 [APP/0]      OUT 2016-04-11 20:12:47.094  INFO 12 --- [           main] s.w.s.m.m.a.RequestM
+appingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView
+ org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest)
+2016-04-12T01:42:47.09+0530 [APP/0]      OUT 2016-04-11 20:12:47.095  INFO 12 --- [           main] s.w.s.m.m.a.RequestM
+appingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.S
+tring, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpS
+ervletRequest)
+2016-04-12T01:42:47.19+0530 [APP/0]      OUT 2016-04-11 20:12:47.191  INFO 12 --- [           main] o.s.w.s.handler.Simp
+leUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resourc
+e.ResourceHttpRequestHandler]
+2016-04-12T01:42:47.19+0530 [APP/0]      OUT 2016-04-11 20:12:47.194  INFO 12 --- [           main] o.s.w.s.handler.Simp
+leUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.Resour
+ceHttpRequestHandler]
+2016-04-12T01:42:47.32+0530 [APP/0]      OUT 2016-04-11 20:12:47.325  INFO 12 --- [           main] o.s.w.s.handler.Simp
+leUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.res
+ource.ResourceHttpRequestHandler]
+2016-04-12T01:42:47.70+0530 [APP/0]      OUT 2016-04-11 20:12:47.704  INFO 12 --- [           main] o.s.j.e.a.Annotation
+MBeanExporter        : Registering beans for JMX exposure on startup
+2016-04-12T01:42:47.95+0530 [APP/0]      OUT 2016-04-11 20:12:47.949  INFO 12 --- [           main] s.b.c.e.t.TomcatEmbe
+ddedServletContainer : Tomcat started on port(s): 8080 (http)
+2016-04-12T01:42:47.95+0530 [APP/0]      OUT 2016-04-11 20:12:47.958  INFO 12 --- [           main] c.company.auth.clien
+t.AtomicApplication  : Started AtomicApplication in 22.87 seconds (JVM running for 27.083)
+2016-04-12T01:42:48.11+0530 [CELL/0]     OUT Container became healthy
+2016-04-12T01:43:59.15+0530 [APP/0]      OUT 2016-04-11 20:13:59.156  INFO 12 --- [nio-8080-exec-4] o.a.c.c.C.[Tomcat].[
+localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2016-04-12T01:43:59.15+0530 [APP/0]      OUT 2016-04-11 20:13:59.159  INFO 12 --- [nio-8080-exec-4] o.s.web.servlet.Disp
+atcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2016-04-12T01:43:59.30+0530 [APP/0]      OUT 2016-04-11 20:13:59.304  INFO 12 --- [nio-8080-exec-4] o.s.web.servlet.Disp
+atcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 142 ms
+2016-04-12T01:43:59.52+0530 [APP/0]      OUT 2016-04-11 20:13:59.522  INFO 12 --- [nio-8080-exec-4] c.c.a.c.controller.E
+mployeeController    : Entering..
+2016-04-12T01:43:59.52+0530 [APP/0]      OUT 2016-04-11 20:13:59.525  INFO 12 --- [nio-8080-exec-4] c.c.a.c.service.Empl
+oyeeServiceImpl      : Entering
+2016-04-12T01:43:59.52+0530 [APP/0]      OUT 2016-04-11 20:13:59.525  INFO 12 --- [nio-8080-exec-4] c.c.a.c.service.Empl
+oyeeServiceImpl      : Received Id  is :25
+2016-04-12T01:43:59.52+0530 [APP/0]      OUT 2016-04-11 20:13:59.525  INFO 12 --- [nio-8080-exec-4] c.c.a.c.controller.E
+mployeeController    : Leaving.
+2016-04-12T01:44:00.06+0530 [RTR/0]      OUT atomic.local1.pcfdev.io - [11/04/2016:20:13:59 +0000] "GET /employee/25 HTT
+P/1.1" 200 0 33 "-" "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Saf
+ari/537.36" 192.168.11.1:50790 x_forwarded_for:"-" x_forwarded_proto:"http" vcap_request_id:0663bf77-a952-44ea-6391-6b94
+622989bf response_time:0.960830628 app_id:3d93fee1-439d-4cf7-9c39-10306bddfb5d
+2016-04-12T01:44:08.07+0530 [RTR/0]      OUT atomic.local1.pcfdev.io - [11/04/2016:20:14:06 +0000] "GET /favicon.ico HTT
+P/1.1" 200 0 946 "http://atomic.local1.pcfdev.io/employee/25" "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (K
+HTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36" 192.168.11.1:50790 x_forwarded_for:"-" x_forwarded_proto:"http" vc
+ap_request_id:418c9fd9-4f96-4400-7e18-9e779978fb80 response_time:1.827410667 app_id:3d93fee1-439d-4cf7-9c39-10306bddfb5d
+
+PS F:\SriProjects\without_zuul\Atomic\target> cf logs Atomic --recent
+Connected, dumping recent logs for app Atomic in org pcfdev-org / space pcfdev-space as admin...
+
+2016-04-12T01:33:36.25+0530 [STG/0]      OUT Downloaded app package (28.5M)
+2016-04-12T01:33:36.25+0530 [STG/0]      OUT Staging...
+2016-04-12T01:33:45.36+0530 [STG/0]      ERR None of the buildpacks detected a compatible application
+2016-04-12T01:33:45.37+0530 [STG/0]      OUT Exit status 222
+2016-04-12T01:33:45.44+0530 [STG/0]      ERR Staging failed: Exited with status 222
+2016-04-12T01:33:51.21+0530 [API/0]      ERR Failed to stage application: staging failed
+2016-04-12T01:40:18.85+0530 [API/0]      OUT Updated app with guid 3d93fee1-439d-4cf7-9c39-10306bddfb5d ({"name"=>"Atomi
+c"})
+2016-04-12T01:40:44.09+0530 [API/0]      OUT Updated app with guid 3d93fee1-439d-4cf7-9c39-10306bddfb5d ({"state"=>"STAR
+TED"})
+2016-04-12T01:40:44.77+0530 [STG/0]      OUT Downloading binary_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading java_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading ruby_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading nodejs_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading go_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading python_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading php_buildpack...
+2016-04-12T01:40:44.81+0530 [STG/0]      OUT Downloading staticfile_buildpack...
+2016-04-12T01:40:44.89+0530 [STG/0]      OUT Downloaded ruby_buildpack
+2016-04-12T01:40:44.90+0530 [STG/0]      OUT Downloaded nodejs_buildpack
+2016-04-12T01:40:44.90+0530 [STG/0]      OUT Downloaded staticfile_buildpack
+2016-04-12T01:40:44.91+0530 [STG/0]      OUT Downloaded java_buildpack
+2016-04-12T01:40:44.91+0530 [STG/0]      OUT Downloaded go_buildpack
+2016-04-12T01:40:44.92+0530 [STG/0]      OUT Downloaded python_buildpack
+2016-04-12T01:40:44.92+0530 [STG/0]      OUT Downloaded php_buildpack
+2016-04-12T01:40:44.93+0530 [STG/0]      OUT Downloaded binary_buildpack
+2016-04-12T01:40:45.25+0530 [STG/0]      OUT Creating container
+2016-04-12T01:40:46.77+0530 [STG/0]      OUT Successfully created container
+2016-04-12T01:40:46.79+0530 [STG/0]      OUT Downloading app package...
+2016-04-12T01:40:47.81+0530 [STG/0]      OUT Downloaded app package (11.4M)
+2016-04-12T01:40:47.81+0530 [STG/0]      OUT Staging...
+2016-04-12T01:40:52.37+0530 [STG/0]      OUT -----> Java Buildpack Version: v3.6 (offline) | https://github.com/cloudfou
+ndry/java-buildpack.git#5194155
+2016-04-12T01:40:52.62+0530 [STG/0]      OUT -----> Downloading Open Jdk JRE 1.8.0_71 from https://download.run.pivotal.
+io/openjdk/trusty/x86_64/openjdk-1.8.0_71.tar.gz (found in cache)
+2016-04-12T01:40:56.56+0530 [STG/0]      OUT        Expanding Open Jdk JRE to .java-buildpack/open_jdk_jre (3.9s)
+2016-04-12T01:40:56.69+0530 [STG/0]      OUT -----> Downloading Open JDK Like Memory Calculator 2.0.1_RELEASE from https
+://download.run.pivotal.io/memory-calculator/trusty/x86_64/memory-calculator-2.0.1_RELEASE.tar.gz (found in cache)
+2016-04-12T01:40:56.82+0530 [STG/0]      OUT        Memory Settings: -XX:MaxMetaspaceSize=104857K -Xss1M -Xms768M -XX:Me
+taspaceSize=104857K -Xmx768M
+2016-04-12T01:40:56.84+0530 [STG/0]      OUT -----> Downloading Spring Auto Reconfiguration 1.10.0_RELEASE from https://
+download.run.pivotal.io/auto-reconfiguration/auto-reconfiguration-1.10.0_RELEASE.jar (found in cache)
+2016-04-12T01:41:29.74+0530 [STG/0]      OUT Exit status 0
+2016-04-12T01:41:29.78+0530 [STG/0]      OUT Staging complete
+2016-04-12T01:41:29.78+0530 [STG/0]      OUT Uploading droplet, build artifacts cache...
+2016-04-12T01:41:29.84+0530 [STG/0]      OUT Uploading droplet...
+2016-04-12T01:41:29.87+0530 [STG/0]      OUT Uploading build artifacts cache...
+2016-04-12T01:41:34.15+0530 [STG/0]      OUT Uploaded build artifacts cache (108B)
+2016-04-12T01:41:55.28+0530 [STG/0]      OUT Uploaded droplet (56.3M)
+2016-04-12T01:41:55.29+0530 [STG/0]      OUT Uploading complete
+2016-04-12T01:42:03.63+0530 [CELL/0]     OUT Creating container
+2016-04-12T01:42:05.08+0530 [CELL/0]     OUT Successfully created container
+2016-04-12T01:42:15.59+0530 [CELL/0]     OUT Starting health monitoring of container
+2016-04-12T01:42:28.35+0530 [APP/0]      OUT   .   ____          _            __ _ _
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT   '  |____| .__|_| |_|_| |_\__, | / / / /
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT  =========|_|==============|___/=/_/_/_/
+2016-04-12T01:42:28.36+0530 [APP/0]      OUT  :: Spring Boot ::        (v1.3.0.RELEASE)
+2016-04-12T01:42:28.94+0530 [APP/0]      OUT 2016-04-11 20:12:28.927  INFO 12 --- [           main] pertySourceApplicati
+onContextInitializer : Adding 'cloud' PropertySource to ApplicationContext
+2016-04-12T01:42:29.26+0530 [APP/0]      OUT 2016-04-11 20:12:29.252  INFO 12 --- [           main] nfigurationApplicati
+onContextInitializer : Adding cloud service auto-reconfiguration to ApplicationContext
+2016-04-12T01:42:29.38+0530 [APP/0]      OUT 2016-04-11 20:12:29.361  INFO 12 --- [           main] c.company.auth.clien
+t.AtomicApplication  : Starting AtomicApplication on h34ck58s57i with PID 12 (/home/vcap/app/WEB-INF/classes started by
+vcap in /home/vcap/app)
+2016-04-12T01:42:29.38+0530 [APP/0]      OUT 2016-04-11 20:12:29.361  INFO 12 --- [           main] c.company.auth.clien
+t.AtomicApplication  : The following profiles are active: cloud
+2016-04-12T01:42:30.33+0530 [APP/0]      OUT 2016-04-11 20:12:30.251  INFO 12 --- [           main] ationConfigEmbeddedW
+ebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContex
+t@55ed26e: startup date [Mon Apr 11 20:12:30 UTC 2016]; root of context hierarchy
+2016-04-12T01:42:37.90+0530 [APP/0]      OUT 2016-04-11 20:12:37.901  WARN 12 --- [           main] .i.s.PathMatchingRes
+ourcePatternResolver : Skipping [/home/vcap/app/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfiguration-
+1.10.0_RELEASE.jar] because it does not denote a directory
+2016-04-12T01:42:40.02+0530 [APP/0]      OUT 2016-04-11 20:12:40.025  INFO 12 --- [           main] o.s.b.f.s.DefaultLis
+tableBeanFactory     : Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing
+ [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=
+true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErro
+rViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined i
+n class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfigura
+tion.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; a
+utowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration
+$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferre
+d); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigu
+rationAdapter.class]]
+2016-04-12T01:42:41.05+0530 [APP/0]      OUT 2016-04-11 20:12:41.058  INFO 12 --- [           main] urceCloudServiceBean
+FactoryPostProcessor : Auto-reconfiguring beans of type javax.sql.DataSource
+2016-04-12T01:42:41.06+0530 [APP/0]      OUT 2016-04-11 20:12:41.062  INFO 12 --- [           main] urceCloudServiceBean
+FactoryPostProcessor : No beans of type javax.sql.DataSource found. Skipping auto-reconfiguration.
+2016-04-12T01:42:43.40+0530 [APP/0]      OUT 2016-04-11 20:12:43.404  INFO 12 --- [           main] s.b.c.e.t.TomcatEmbe
+ddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2016-04-12T01:42:43.45+0530 [APP/0]      OUT 2016-04-11 20:12:43.455  INFO 12 --- [           main] o.apache.catalina.co
+re.StandardService   : Starting service Tomcat
+2016-04-12T01:42:43.46+0530 [APP/0]      OUT 2016-04-11 20:12:43.460  INFO 12 --- [           main] org.apache.catalina.
+core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2016-04-12T01:42:44.02+0530 [APP/0]      OUT 2016-04-11 20:12:44.022  INFO 12 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[
+localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-04-12T01:42:44.02+0530 [APP/0]      OUT 2016-04-11 20:12:44.025  INFO 12 --- [ost-startStop-1] o.s.web.context.Cont
+extLoader            : Root WebApplicationContext: initialization completed in 13989 ms
+2016-04-12T01:42:45.40+0530 [APP/0]      OUT 2016-04-11 20:12:45.403  INFO 12 --- [ost-startStop-1] o.s.b.c.e.ServletReg
+istrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2016-04-12T01:42:45.42+0530 [APP/0]      OUT 2016-04-11 20:12:45.428  INFO 12 --- [ost-startStop-1] o.s.b.c.embedded.Fil
+terRegistrationBean  : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-04-12T01:42:45.43+0530 [APP/0]      OUT 2016-04-11 20:12:45.431  INFO 12 --- [ost-startStop-1] o.s.b.c.embedded.Fil
+terRegistrationBean  : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-04-12T01:42:45.43+0530 [APP/0]      OUT 2016-04-11 20:12:45.434  INFO 12 --- [ost-startStop-1] o.s.b.c.embedded.Fil
+terRegistrationBean  : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-04-12T01:42:45.43+0530 [APP/0]      OUT 2016-04-11 20:12:45.434  INFO 12 --- [ost-startStop-1] o.s.b.c.embedded.Fil
+terRegistrationBean  : Mapping filter: 'requestContextFilter' to: [/*]
+2016-04-12T01:42:46.66+0530 [APP/0]      OUT 2016-04-11 20:12:46.668  INFO 12 --- [           main] s.w.s.m.m.a.RequestM
+appingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbedded
+WebApplicationContext@55ed26e: startup date [Mon Apr 11 20:12:30 UTC 2016]; root of context hierarchy
+2016-04-12T01:42:47.08+0530 [APP/0]      OUT 2016-04-11 20:12:47.084  INFO 12 --- [           main] s.w.s.m.m.a.RequestM
+appingHandlerMapping : Mapped "{[/employee/{id}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com
+.company.auth.client.model.Employee> com.company.auth.client.controller.EmployeeController.getEmployee(java.lang.String)
+ throws java.lang.Exception
+2016-04-12T01:42:47.09+0530 [APP/0]      OUT 2016-04-11 20:12:47.091  INFO 12 --- [           main] s.w.s.m.m.a.RequestM
+appingHandlerMapping : Mapped "{[/employee],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.la
+ng.String> com.company.auth.client.controller.EmployeeController.createEmployee(com.company.auth.client.model.Employee)
+throws java.lang.Exception
+2016-04-12T01:42:47.09+0530 [APP/0]      OUT 2016-04-11 20:12:47.094  INFO 12 --- [           main] s.w.s.m.m.a.RequestM
+appingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView
+ org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest)
+2016-04-12T01:42:47.09+0530 [APP/0]      OUT 2016-04-11 20:12:47.095  INFO 12 --- [           main] s.w.s.m.m.a.RequestM
+appingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.S
+tring, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpS
+ervletRequest)
+2016-04-12T01:42:47.19+0530 [APP/0]      OUT 2016-04-11 20:12:47.191  INFO 12 --- [           main] o.s.w.s.handler.Simp
+leUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resourc
+e.ResourceHttpRequestHandler]
+2016-04-12T01:42:47.19+0530 [APP/0]      OUT 2016-04-11 20:12:47.194  INFO 12 --- [           main] o.s.w.s.handler.Simp
+leUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.Resour
+ceHttpRequestHandler]
+2016-04-12T01:42:47.32+0530 [APP/0]      OUT 2016-04-11 20:12:47.325  INFO 12 --- [           main] o.s.w.s.handler.Simp
+leUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.res
+ource.ResourceHttpRequestHandler]
+2016-04-12T01:42:47.70+0530 [APP/0]      OUT 2016-04-11 20:12:47.704  INFO 12 --- [           main] o.s.j.e.a.Annotation
+MBeanExporter        : Registering beans for JMX exposure on startup
+2016-04-12T01:42:47.95+0530 [APP/0]      OUT 2016-04-11 20:12:47.949  INFO 12 --- [           main] s.b.c.e.t.TomcatEmbe
+ddedServletContainer : Tomcat started on port(s): 8080 (http)
+2016-04-12T01:42:47.95+0530 [APP/0]      OUT 2016-04-11 20:12:47.958  INFO 12 --- [           main] c.company.auth.clien
+t.AtomicApplication  : Started AtomicApplication in 22.87 seconds (JVM running for 27.083)
+2016-04-12T01:42:48.11+0530 [CELL/0]     OUT Container became healthy
+2016-04-12T01:43:59.15+0530 [APP/0]      OUT 2016-04-11 20:13:59.156  INFO 12 --- [nio-8080-exec-4] o.a.c.c.C.[Tomcat].[
+localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2016-04-12T01:43:59.15+0530 [APP/0]      OUT 2016-04-11 20:13:59.159  INFO 12 --- [nio-8080-exec-4] o.s.web.servlet.Disp
+atcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2016-04-12T01:43:59.30+0530 [APP/0]      OUT 2016-04-11 20:13:59.304  INFO 12 --- [nio-8080-exec-4] o.s.web.servlet.Disp
+atcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 142 ms
+2016-04-12T01:43:59.52+0530 [APP/0]      OUT 2016-04-11 20:13:59.522  INFO 12 --- [nio-8080-exec-4] c.c.a.c.controller.E
+mployeeController    : Entering..
+2016-04-12T01:43:59.52+0530 [APP/0]      OUT 2016-04-11 20:13:59.525  INFO 12 --- [nio-8080-exec-4] c.c.a.c.service.Empl
+oyeeServiceImpl      : Entering
+2016-04-12T01:43:59.52+0530 [APP/0]      OUT 2016-04-11 20:13:59.525  INFO 12 --- [nio-8080-exec-4] c.c.a.c.service.Empl
+oyeeServiceImpl      : Received Id  is :25
+2016-04-12T01:43:59.52+0530 [APP/0]      OUT 2016-04-11 20:13:59.525  INFO 12 --- [nio-8080-exec-4] c.c.a.c.controller.E
+mployeeController    : Leaving.
+2016-04-12T01:44:00.06+0530 [RTR/0]      OUT atomic.local1.pcfdev.io - [11/04/2016:20:13:59 +0000] "GET /employee/25 HTT
+P/1.1" 200 0 33 "-" "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Saf
+ari/537.36" 192.168.11.1:50790 x_forwarded_for:"-" x_forwarded_proto:"http" vcap_request_id:0663bf77-a952-44ea-6391-6b94
+622989bf response_time:0.960830628 app_id:3d93fee1-439d-4cf7-9c39-10306bddfb5d
+2016-04-12T01:44:08.07+0530 [RTR/0]      OUT atomic.local1.pcfdev.io - [11/04/2016:20:14:06 +0000] "GET /favicon.ico HTT
+P/1.1" 200 0 946 "http://atomic.local1.pcfdev.io/employee/25" "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (K
+HTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36" 192.168.11.1:50790 x_forwarded_for:"-" x_forwarded_proto:"http" vc
+ap_request_id:418c9fd9-4f96-4400-7e18-9e779978fb80 response_time:1.827410667 app_id:3d93fee1-439d-4cf7-9c39-10306bddfb5d
+
+2016-04-12T01:45:58.13+0530 [APP/0]      OUT 2016-04-11 20:15:58.133  INFO 12 --- [io-8080-exec-10] c.c.a.c.controller.E
+mployeeController    : Entering..
+2016-04-12T01:45:58.16+0530 [APP/0]      OUT 2016-04-11 20:15:58.134  INFO 12 --- [io-8080-exec-10] c.c.a.c.service.Empl
+oyeeServiceImpl      : Entering
+2016-04-12T01:45:58.16+0530 [APP/0]      OUT 2016-04-11 20:15:58.167  INFO 12 --- [io-8080-exec-10] c.c.a.c.service.Empl
+oyeeServiceImpl      : Received Employee Object  is :Employee [empno=100, empname=Sridhar]
+2016-04-12T01:45:58.16+0530 [APP/0]      OUT 2016-04-11 20:15:58.168  INFO 12 --- [io-8080-exec-10] c.c.a.c.service.Empl
+oyeeServiceImpl      : Saved Employee Successfully.
+2016-04-12T01:45:58.16+0530 [APP/0]      OUT 2016-04-11 20:15:58.168  INFO 12 --- [io-8080-exec-10] c.c.a.c.service.Empl
+oyeeServiceImpl      : Leaving createEmployee
+2016-04-12T01:45:58.17+0530 [APP/0]      OUT 2016-04-11 20:15:58.173  INFO 12 --- [io-8080-exec-10] c.c.a.c.controller.E
+mployeeController    : Leaving.
+2016-04-12T01:45:58.18+0530 [RTR/0]      OUT atomic.local1.pcfdev.io - [11/04/2016:20:15:57 +0000] "POST /employee HTTP/
+1.1" 201 42 29 "-" "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safa
+ri/537.36" 192.168.11.1:50790 x_forwarded_for:"-" x_forwarded_proto:"http" vcap_request_id:ed23e031-1d7d-4bbd-7414-c2af3
+bc7455d response_time:0.291699157 app_id:3d93fee1-439d-4cf7-9c39-10306bddfb5d
+PS F:\SriProjects\without_zuul\Atomic\target> cf create-service
+FAILED
+Incorrect Usage. Requires service, service plan, service instance as arguments
+
+NAME:
+   create-service - Create a service instance
+
+USAGE:
+   cf.exe create-service SERVICE PLAN SERVICE_INSTANCE [-c PARAMETERS_AS_JSON] [-t TAGS]
+
+   Optionally provide service-specific configuration parameters in a valid JSON object in-line:
+
+   cf.exe create-service SERVICE PLAN SERVICE_INSTANCE -c '{"name":"value","name":"value"}'
+
+   Optionally provide a file containing service-specific configuration parameters in a valid JSON object.
+   The path to the parameters file can be an absolute or relative path to a file:
+
+   cf.exe create-service SERVICE PLAN SERVICE_INSTANCE -c PATH_TO_FILE
+
+   Example of valid JSON object:
+   {
+      "cluster_nodes": {
+         "count": 5,
+         "memory_mb": 1024
+      }
+   }
+
+EXAMPLE:
+   Linux/Mac:
+      cf.exe create-service db-service silver mydb -c '{"ram_gb":4}'
+
+   Windows Command Line:
+      cf.exe create-service db-service silver mydb -c "{\"ram_gb\":4}"
+
+   Windows PowerShell:
+      cf.exe create-service db-service silver mydb -c '{\"ram_gb\":4}'
+
+   cf.exe create-service db-service silver mydb -c ~/workspace/tmp/instance_config.json
+
+   cf.exe create-service db-service silver mydb -t "list, of, tags"
+
+TIP:
+   Use 'cf.exe create-user-provided-service' to make user-provided services available to cf apps
+
+ALIAS:
+   cs
+
+OPTIONS:
+   -c   Valid JSON object containing service-specific configuration parameters, provided either in-line or in a file. Fo
+r a list of supported configuration parameters, see documentation for the particular service offering.
+   -t   User provided tags
+
+PS F:\SriProjects\without_zuul\Atomic\target> cf create-service p-mongodb development mongodb
+Creating service instance mongodb in org pcfdev-org / space pcfdev-space as admin...
+FAILED
+Service offering p-mongodb not found
+PS F:\SriProjects\without_zuul\Atomic\target> cf marketplace
+Getting services from marketplace in org pcfdev-org / space pcfdev-space as admin...
+OK
+
+service      plans        description
+p-mysql      512mb, 1gb   MySQL databases on demand
+p-rabbitmq   standard     RabbitMQ is a robust and scalable high-performance multi-protocol messaging broker.
+p-redis      shared-vm    Redis service to provide a key-value store
+
+TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
+PS F:\SriProjects\without_zuul\Atomic\target> cd F:\SriProjects\pcfdev-v0.13.0
+PS F:\SriProjects\pcfdev-v0.13.0> dir
+
+
+    Directory: F:\SriProjects\pcfdev-v0.13.0
+
+
+Mode                LastWriteTime     Length Name
+----                -------------     ------ ----
+d----        11-04-2016     23:48            .vagrant
+-a---        01-04-2016     20:04        129 destroy-osx
+-a---        01-04-2016     20:04        122 destroy-windows.ps1
+-a---        04-04-2016     20:06       2218 start-osx
+-a---        04-04-2016     20:06       2651 start-windows.ps1
+-a---        01-04-2016     20:04        123 stop-osx
+-a---        01-04-2016     20:04        116 stop-windows.ps1
+-a---        30-03-2016     08:56       4466 Vagrantfile
+
+
+PS F:\SriProjects\pcfdev-v0.13.0> .\stop-osx
+PS F:\SriProjects\pcfdev-v0.13.0> .\start-osx
+PS F:\SriProjects\pcfdev-v0.13.0> .\stop-windows.ps1
+==> default: Attempting graceful shutdown of VM...
+PS F:\SriProjects\pcfdev-v0.13.0> .\start-windows.ps1
+WARNING: PCF Dev has reserved 2 GBs out of 3 GBs total system memory.
+Performance may be impacted.
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Checking if box 'pcfdev/pcfdev' is up to date...
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+    default: Adapter 2: hostonly
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+==> default: Configuring and enabling network interfaces...
+==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> default: flag to force provisioning. Provisioners marked to run always will still run.
+==> default: Running provisioner: shell...
+    default: Running: inline script
+==> default: stdin: is not a tty
+==> default: Waiting for services to start...
+==> default: 0 out of 48 running
+==> default: 0 out of 48 running
+==> default: 0 out of 48 running
+==> default: 0 out of 48 running
+==> default: 0 out of 48 running
+==> default: 4 out of 48 running
+==> default: 8 out of 48 running
+==> default: 27 out of 48 running
+==> default: 41 out of 48 running
+==> default: 45 out of 48 running
+==> default: 44 out of 48 running
+==> default: 40 out of 48 running
+==> default: 42 out of 48 running
+==> default: 48 out of 48 running
+==> default: PCF Dev is now running.
+==> default: To begin using PCF Dev, please run:
+==> default:    cf login -a api.local1.pcfdev.io --skip-ssl-validation
+==> default: Email: admin
+==> default: Password: admin
+PS F:\SriProjects\pcfdev-v0.13.0> .\stop-windows.ps1
